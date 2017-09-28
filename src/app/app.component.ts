@@ -1,3 +1,4 @@
+/*app.component.ts 根组件 angular里的组件，就是视图，组件的产品就是我们所看见的界面。根组件主要定义了app整体的视觉表现，比如根页面、状态栏、启动界面等等*/
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';

@@ -1,3 +1,4 @@
+/*app.module.ts 根模块文件 ionic是基于angular的，而angular是完全模块化的。根模块文件是个大管家，你把你要用什么（模块、组件、服务、管道、指令等）都告诉它*/
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
