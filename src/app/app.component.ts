@@ -17,7 +17,7 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       if (platform.is('ios')) {
-        statusBar.styleDefault();
+        statusBar.styleLightContent();
       } else if (platform.is('android')) {
         statusBar.backgroundColorByHexString("#00A0FE");
       }

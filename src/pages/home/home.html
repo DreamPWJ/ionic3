@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="primary">
+  <ion-navbar >
     <ion-title>主页</ion-title>
   </ion-navbar>
 </ion-header>
@@ -13,5 +13,5 @@
       <ion-icon name="rose" item-right></ion-icon>
     </ion-item>
   </ion-list>
-  <button  ion-button color="secondary" [navPush]="loginPage" [navParams]="params">Button</button>
+  <button  ion-button color="secondary" (click)="logIn()">Button</button>
 </ion-content>

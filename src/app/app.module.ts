@@ -26,8 +26,9 @@ import {SplashScreen} from '@ionic-native/splash-screen';
     BrowserModule,
     IonicModule.forRoot(MyApp,
       {
+        tabsHideOnSubPages: 'true',//隐藏全部子页面tabs
         backButtonText: '',
-/*        backButtonIcon: "ios-arrow-back",*/
+        /*        backButtonIcon: "ios-arrow-back",*/
         iconMode: 'ios',
         modalEnter: 'modal-slide-in',
         modalLeave: 'modal-slide-out',
