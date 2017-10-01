@@ -29,6 +29,7 @@ import {SplashScreen} from '@ionic-native/splash-screen';
         tabsHideOnSubPages: 'true',//隐藏全部子页面tabs
         backButtonText: '',
         /*        backButtonIcon: "ios-arrow-back",*/
+        mode: 'ios', //android 是 md
         iconMode: 'ios',
         modalEnter: 'modal-slide-in',
         modalLeave: 'modal-slide-out',
