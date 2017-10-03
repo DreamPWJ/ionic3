@@ -26,16 +26,16 @@ import {SplashScreen} from '@ionic-native/splash-screen';
     BrowserModule,
     IonicModule.forRoot(MyApp,
       {
+        mode: 'ios', //android 是 md
         tabsHideOnSubPages: 'true',//隐藏全部子页面tabs
         backButtonText: '',
-        /*        backButtonIcon: "ios-arrow-back",*/
-        mode: 'ios', //android 是 md
-        iconMode: 'ios',
-        modalEnter: 'modal-slide-in',
-        modalLeave: 'modal-slide-out',
-        tabsPlacement: 'bottom',
-        pageTransition: 'ios-transition'
-      },)
+        /*        backButtonIcon: "ios-arrow-back",
+                iconMode: 'ios',
+                modalEnter: 'modal-slide-in',
+                modalLeave: 'modal-slide-out',
+                tabsPlacement: 'bottom',
+                pageTransition: 'ios-transition'*/
+      })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
