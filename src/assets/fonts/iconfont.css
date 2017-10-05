@@ -5,15 +5,6 @@
   url('iconfont.ttf?t=1507080337808') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/ url('iconfont.svg?t=1507080337808#iconfont') format('svg'); /* iOS 4.1- */
 }
 
-.icon {
-  font-family: "Ionicons" !important;
-  font-size: 16px;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-
 
 .icon-appreciate:before {
   content: "\e644";
