@@ -36,14 +36,17 @@ $colors: (
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
-$img-placeholder-background: transparent;
-$toolbar-background: color($colors, primary);
-$tabs-background: #fff;
+$img-placeholder-background: transparent !default;
+$toolbar-background: color($colors, primary) !default;
+$toolbar-border: none !default;
+$tabs-background: #fff !default;
+$list-border-color: #DDDDDD !default;
 
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-
+$toolbar-ios-border-color: transparent;
+$tabs-ios-border-color: #DDDDDD !default;
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here

@@ -1,17 +1,18 @@
 <ion-header>
-  <ion-navbar >
+  <ion-navbar>
     <ion-title>主页</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content >
-  <ion-list class="">
-    <ion-item>
+<ion-content>
+  <ion-list>
+    <button ion-item (click)="logIn()">
       <ion-icon name="leaf" item-left></ion-icon>
-      Herbology
-      <p>Herbology</p>
-      <ion-icon name="icon-form" item-right></ion-icon>
-    </ion-item>
+      标题
+      <p>副标题</p>
+    </button>
   </ion-list>
-  <button  ion-button color="secondary" (click)="logIn()">Button</button>
+  <div padding>
+    <button ion-button block color="secondary" (click)="logIn()">登录</button>
+  </div>
 </ion-content>
