@@ -11,8 +11,9 @@ import {TabsPage} from '../pages/tabs/tabs';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
-
+//模块装饰器 。@NgModule利用一个元数据对象来告诉Angular如何去编译和运行代码。一个模块内部可以包含组件、指令、管道，并且可以将它们的访问权限声明为公有，以使外部模块的组件可以访问和使用到它们
 @NgModule({
+  //包装模块内部Components/Directives/Pipes的列表，声明一下这个模块内部成员
   declarations: [
     MyApp,
     AboutPage,
@@ -20,6 +21,7 @@ import {SplashScreen} from '@ionic-native/splash-screen';
     HomePage,
     TabsPage
   ],
+  //导入其他模块
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp,
@@ -35,7 +37,9 @@ import {SplashScreen} from '@ionic-native/splash-screen';
                 pageTransition: 'ios-transition'*/
       })
   ],
+  //设置根组件 通常是app启动的根组件，一般只有一个component。bootstrap中的组件会自动被放入到entryComponents中
   bootstrap: [IonicApp],
+  //不会再模板中被引用到的组件
   entryComponents: [
     MyApp,
     AboutPage,
@@ -43,11 +47,13 @@ import {SplashScreen} from '@ionic-native/splash-screen';
     HomePage,
     TabsPage
   ],
+  //依赖注入 指定应用程序的根级别需要使用的service
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
+//导出组件或者指令等 用来控制将哪些内部成员暴露给外部使用
 export class AppModule {
 }
