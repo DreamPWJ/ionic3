@@ -11,6 +11,10 @@ import {TabsPage} from '../pages/tabs/tabs';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
+
+import { HttpModule } from '@angular/http';
+import { AppService} from './app.service';
+
 //模块装饰器 。@NgModule利用一个元数据对象来告诉Angular如何去编译和运行代码。一个模块内部可以包含组件、指令、管道，并且可以将它们的访问权限声明为公有，以使外部模块的组件可以访问和使用到它们
 @NgModule({
   //包装模块内部Components/Directives/Pipes的列表，声明一下这个模块内部成员
@@ -23,7 +27,7 @@ import {SplashScreen} from '@ionic-native/splash-screen';
   ],
   //导入其他模块
   imports: [
-    BrowserModule,
+    BrowserModule,HttpModule,
     IonicModule.forRoot(MyApp,
       {
         mode: 'ios', //android 是 md
@@ -49,6 +53,7 @@ import {SplashScreen} from '@ionic-native/splash-screen';
   ],
   //依赖注入 指定应用程序的根级别需要使用的service
   providers: [
+    AppService,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
