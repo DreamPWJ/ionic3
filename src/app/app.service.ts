@@ -7,18 +7,14 @@ import 'rxjs/add/operator/toPromise';
 export class AppGlobal {
   //缓存key的配置
   static cache: any = {
-    slides: "_dress_slides",
-    categories: "_dress_categories",
-    products: "_dress_products"
+
   }
   //接口基地址
   static domain = "https://tlimama.tongedev.cn"
 
   //接口地址
   static API: any = {
-    getCategories: '/api/ionic3/getCategories',
-    getProducts: '/api/ionic3/getProducts',
-    getDetails: '/api/ionic3/details'
+
   };
 }
 
