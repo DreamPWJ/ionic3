@@ -31,8 +31,9 @@ import { AppService} from './app.service';
     IonicModule.forRoot(MyApp,
       {
         mode: 'ios', //android 是 md
-        tabsHideOnSubPages: 'true',//隐藏全部子页面tabs
+        tabsHideOnSubPages: true,//隐藏全部子页面tabs
         backButtonText: '',
+        spinner:'crescent'
         /*        backButtonIcon: "ios-arrow-back",
                 iconMode: 'ios',
                 modalEnter: 'modal-slide-in',
