@@ -46,11 +46,11 @@ export class AppService {
     this.http.get(AppGlobal.domain + url + this.encode(params))
       .toPromise()
       .then(res => {
-        var d = res.json();
+        var data = res.json();
         if (loader) {
           loading.dismiss();
         }
-        callback( d);
+        callback( data);
       })
       .catch(error => {
         if (loader) {
@@ -68,11 +68,11 @@ export class AppService {
     this.http.post( url, params)
       .toPromise()
       .then(res => {
-        var d = res.json();
+        var data = res.json();
         if (loader) {
           loading.dismiss();
         }
-        callback( d);
+        callback( data);
       }).catch(error => {
       if (loader) {
         loading.dismiss();
