@@ -50,7 +50,7 @@ export class AppService {
         if (loader) {
           loading.dismiss();
         }
-        callback(d == null ? "[]" : d);
+        callback( d);
       })
       .catch(error => {
         if (loader) {
@@ -65,14 +65,14 @@ export class AppService {
     if (loader) {
       loading.present();
     }
-    this.http.post(AppGlobal.domain + url, params)
+    this.http.post( url, params)
       .toPromise()
       .then(res => {
         var d = res.json();
         if (loader) {
           loading.dismiss();
         }
-        callback(d == null ? "[]" : d);
+        callback( d);
       }).catch(error => {
       if (loader) {
         loading.dismiss();
