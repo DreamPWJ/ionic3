@@ -1,5 +1,4 @@
 // http://ionicframework.com/docs/theming/
-
 // App Global Sass  全局样式文件
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -13,10 +12,9 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-
 @import "../assets/fonts/iconfont.scss";
 
-a{
+a {
   text-decoration: none;
 }
 
@@ -44,4 +42,35 @@ $colors-list: (light:$light, stable:$stable, positive:$positive, calm:$calm, bal
   .#{$key}-bg {
     background-color: $value !important;
   }
+}
+
+.isNotDataHint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+}
+
+.isNotDataHint i, .isNotDataHint .icon {
+  font-size: 10rem !important;
+}
+
+.isNotDataHint p {
+  margin-top: 1.5rem;
+  font-size: 2rem;
+}
+
+.center-center {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+.item-block:last-child {
+  border-bottom: none!important;
 }
