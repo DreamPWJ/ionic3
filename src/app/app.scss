@@ -74,3 +74,7 @@ $colors-list: (light:$light, stable:$stable, positive:$positive, calm:$calm, bal
 .item-block:last-child {
   border-bottom: none!important;
 }
+
+.toast {
+  text-align: center !important;
+}

@@ -41,12 +41,14 @@ $img-placeholder-background: transparent !default;
 $toolbar-background: color($colors, primary) !default;
 $tabs-background: #fff !default;
 $list-border-color: #EBEBEB !default;
+$toast-max-width : 100%!default;
 
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
 $toolbar-ios-border-color: transparent!default;
 $tabs-ios-border-color: #EBEBEB !default;
+$toast-ios-background:color($colors, primary) !default;
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here

@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {AppService} from "../../app/app.service";
 
 /**
  * Generated class for the LoginPage page.
@@ -14,23 +15,17 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public account: any = {user: "", password: ""}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public appService: AppService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
 
-/*  logIn(username: HTMLInputElement, password: HTMLInputElement) {
-    if (username.value.length == 0) {
-
-    } else if (password.value.length == 0) {
-
-    } else {
-      let userinfo: string = '用户名：' + username.value + '密码：' + password.value;
-
-    }
-  }*/
+  login() {
+    this.appService.toast(JSON.stringify(this.account),function () {
+    })
+  }
 
 }
