@@ -72,9 +72,13 @@ $colors-list: (light:$light, stable:$stable, positive:$positive, calm:$calm, bal
 }
 
 .item-block:last-child {
-  border-bottom: none!important;
+  border-bottom: none !important;
 }
 
-.toast {
+.toast,.toast-error{
   text-align: center !important;
+}
+
+.toast-error .toast-wrapper {
+  background-color: #ef473a;
 }

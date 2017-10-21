@@ -25,7 +25,7 @@ export class LoginPage {
 
   login() {
     this.appService.toast("登录",function () {
-    },'bottom')
+    })
   }
 
 }
