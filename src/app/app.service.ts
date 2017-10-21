@@ -103,27 +103,40 @@ export class AppService {
     }
   }
 
-  alert(message, callback?) {
-    if (callback) {
-      let alert = this.alertCtrl.create({
-        title: '提示',
-        message: message,
-        buttons: [{
-          text: "确定",
-          handler: data => {
+  alert(title, message) {
+    const alert = this.alertCtrl.create({
+      cssClass: 'alert',
+      title: title,
+      message: message,
+      buttons: ["确定"]
+    });
+    alert.present();
+  }
+
+
+  confirm(title, message, callback?, confirmText = '确定', cancelText = '取消', callbackCancel?) {
+    const alert = this.alertCtrl.create({
+      cssClass: 'confirm',
+      title: title,
+      message: message,
+      buttons: [{
+        text: cancelText,
+        handler: () => {
+          if (callbackCancel) {
+            callbackCancel();
+          }
+          console.log(cancelText);
+        }
+      }, {
+        text: confirmText,
+        handler: data => {
+          if (callback) {
             callback();
           }
-        }]
-      });
-      alert.present();
-    } else {
-      let alert = this.alertCtrl.create({
-        title: '提示',
-        message: message,
-        buttons: ["确定"]
-      });
-      alert.present();
-    }
+        }
+      }]
+    });
+    alert.present();
   }
 
   toast(message, callback?,cssClass = 'toast', position = 'top', ok = false, duration = 2000) {
