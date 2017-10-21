@@ -24,8 +24,8 @@ export class LoginPage {
   }
 
   login() {
-    this.appService.toast(JSON.stringify(this.account),function () {
-    })
+    this.appService.toast("登录",function () {
+    },'bottom')
   }
 
 }
