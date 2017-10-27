@@ -139,7 +139,7 @@ export class AppService {
     alert.present();
   }
 
-  toast(message, callback?,cssClass = 'toast', position = 'top', ok = false, duration = 2000) {
+  toast(message, callback?,cssClass = 'toast', position = 'bottom', ok = false, duration = 2000) {
     if (this.toasts) {
       this.toasts.dismiss();
     }
