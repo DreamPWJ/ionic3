@@ -1,15 +1,13 @@
-import {LoadingController, AlertController, ToastController, Toast} from 'ionic-angular';
 import { Injectable } from '@angular/core';
+import {LoadingController, AlertController, ToastController, Toast} from 'ionic-angular';
+import {NavController, App} from "ionic-angular/index";
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class AppGlobal {
-  //缓存key的配置
-  static cache: any = {
 
-  }
-  //接口基地址
+  //接口域名地址
   static domain = "https://tlimama.tongedev.cn"
 
   //接口地址
@@ -20,10 +18,12 @@ export class AppGlobal {
 
 @Injectable()
 export class AppService {
-
+  public nav: NavController;
   public toasts: Toast;
 
-  constructor(public http: Http, public loadingCtrl: LoadingController, private alertCtrl: AlertController, private toastCtrl: ToastController, ) { }
+  constructor(public http: Http, private app: App, public loadingCtrl: LoadingController, private alertCtrl: AlertController, private toastCtrl: ToastController) {
+    this.nav = this.app.getActiveNav();
+  }
 
   // 对参数进行编码
   encode(params) {
@@ -179,6 +179,25 @@ export class AppService {
     }
     catch (e) {
       console.error("window.localStorage error:" + e);
+    }
+  }
+  /**
+   * 是否登录提示
+   */
+  isLogin(isShow: boolean = false) {
+    if (!localStorage.getItem("userid")) {
+      if (isShow) {
+        this.confirm("登录", "登录体验更完善功能", () => {
+          this.nav.push('LoginPage')
+        }, "登录", "暂不登录", () => {
+          this.nav.pop();
+        })
+      } else {
+        this.nav.push('LoginPage')
+      }
+      return true;
+    } else {
+      return false;
     }
   }
 }
