@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
+import {IonicPage, Navbar, NavController, NavParams} from 'ionic-angular';
 import {AppService} from "../../app/app.service";
 
 /**
@@ -15,20 +15,28 @@ import {AppService} from "../../app/app.service";
   templateUrl: 'login.html',
 })
 export class LoginPage {
+  @ViewChild("navbar") navBar: Navbar;
   public account: any = {user: "", password: ""}
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public appService: AppService) {
   }
 
   ionViewDidLoad() {
+    this.navBar.backButtonClick = this.backButtonClick;
     console.log('ionViewDidLoad LoginPage');
   }
 
+  backButtonClick = (e: UIEvent) => {
+    // do something
+    this.navCtrl.pop();
+  }
+
   login() {
-   this.appService.confirm("登录",JSON.stringify(this.account),function () {
+    this.appService.confirm("登录", JSON.stringify(this.account), function () {
 
     })
-/*    this.appService.toast("登录",function () {
-    })*/
+    /*    this.appService.toast("登录",function () {
+        })*/
   }
 
 }
