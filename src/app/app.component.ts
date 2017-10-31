@@ -1,6 +1,6 @@
 /*app.component.ts 根组件 angular里的组件，就是视图，组件的产品就是我们所看见的界面。根组件主要定义了app整体的视觉表现，比如根页面、状态栏、启动界面等等*/
 import {Component, ViewChild} from '@angular/core';
-import {IonicApp, Keyboard, Nav, Platform} from 'ionic-angular';
+import {App, IonicApp, Keyboard, Nav, NavController, Platform} from 'ionic-angular';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 
@@ -13,9 +13,9 @@ import {AppService} from "./app.service";
 export class MyApp {
   rootPage: any = TabsPage;
   backButtonPressed: boolean = false;  //用于判断返回键是否触发
-  @ViewChild('myNav') nav: Nav;
+  private nav: NavController;
 
-  constructor(public platform: Platform,  statusBar: StatusBar,  splashScreen: SplashScreen, private ionicApp: IonicApp, public appService:AppService, private keyboard: Keyboard) {
+  constructor(public platform: Platform,  statusBar: StatusBar,  splashScreen: SplashScreen,  private app: App,private ionicApp: IonicApp, public appService:AppService, private keyboard: Keyboard) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -25,6 +25,7 @@ export class MyApp {
         statusBar.backgroundColorByHexString("#00A0FE");
       }
       splashScreen.hide();
+      this.nav = this.app.getActiveNav();
       this.registerBackButtonAction();//注册返回按键事件
     });
   }
@@ -45,10 +46,7 @@ export class MyApp {
         });
         return;
       }
-      let activeVC = this.nav.getActive();
-      let tabs = activeVC.instance.tabs;
-      let activeNav = tabs.getSelected();
-      return activeNav.canGoBack() ? activeNav.pop() : this.showExit()
+      return this.nav.canGoBack() ? this.nav.pop() : this.showExit()
     }, 1);
   }
 
@@ -57,7 +55,7 @@ export class MyApp {
     if (this.backButtonPressed) { //当触发标志为true时，即2秒内双击返回按键则退出APP
       this.platform.exitApp();
     } else {
-      this.appService.toast("再按一次退出应用")
+      this.appService.toast("再按一次返回退出应用")
       this.backButtonPressed = true;
       setTimeout(() => this.backButtonPressed = false, 2000);//2秒内没有再次点击返回则将触发标志标记为false
     }
