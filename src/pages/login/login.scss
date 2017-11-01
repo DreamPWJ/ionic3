@@ -1,3 +1,8 @@
 page-login {
-
+  .ng-valid[required] {
+    border-left: 2px solid #0f0;
+  }
+  .ng-invalid[required] {
+    border-left: 2px solid #f00;
+  }
 }
