@@ -38,8 +38,8 @@ export class LoginPage {
     this.appService.getVerifyCode(this.verifyCode);
   }
 
-  login() {
-    this.appService.confirm("登录", JSON.stringify(this.account), function () {
+  login(formValue:any) {
+    this.appService.confirm("登录信息", JSON.stringify(formValue), function () {
 
     })
     /*    this.appService.toast("登录",function () {
