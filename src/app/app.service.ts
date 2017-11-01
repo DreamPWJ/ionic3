@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {LoadingController, AlertController, ToastController, Toast} from 'ionic-angular';
 import {NavController, App} from "ionic-angular/index";
-import { Http } from '@angular/http';
+import {Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
@@ -11,9 +11,14 @@ export class AppGlobal {
   static domain = "https://tlimama.tongedev.cn"
 
   //接口地址
-  static API: any = {
+  static API: any = {};
 
-  };
+  // 验证码倒计时参数
+  static verifyCode: any = {
+    verifyCodeTips: "获取验证码",
+    countdown: 60,
+    disable: true
+  }
 }
 
 @Injectable()
@@ -52,7 +57,7 @@ export class AppService {
         if (loader) {
           loading.dismiss();
         }
-        callback( data);
+        callback(data);
       })
       .catch(error => {
         if (loader) {
@@ -67,14 +72,14 @@ export class AppService {
     if (loader) {
       loading.present();
     }
-    this.http.post( url, params)
+    this.http.post(url, params)
       .toPromise()
       .then(res => {
         var data = res.json();
         if (loader) {
           loading.dismiss();
         }
-        callback( data);
+        callback(data);
       }).catch(error => {
       if (loader) {
         loading.dismiss();
@@ -103,7 +108,7 @@ export class AppService {
     }
     console.log(error);
     if (msg != '') {
-      this.toast(msg,null,'toast-error','top');
+      this.toast(msg, null, 'toast-error', 'top');
     }
   }
 
@@ -143,7 +148,7 @@ export class AppService {
     alert.present();
   }
 
-  toast(message, callback?,cssClass = 'toast', position = 'bottom', ok = false, duration = 2000) {
+  toast(message, callback?, cssClass = 'toast', position = 'bottom', ok = false, duration = 2000) {
     if (this.toasts) {
       this.toasts.dismiss();
     }
@@ -171,6 +176,7 @@ export class AppService {
       console.error("window.localStorage error:" + e);
     }
   }
+
   getItem(key: string, callback) {
     try {
       var json = window.localStorage[key];
@@ -181,6 +187,7 @@ export class AppService {
       console.error("window.localStorage error:" + e);
     }
   }
+
   /**
    * 是否登录提示
    */
@@ -199,5 +206,27 @@ export class AppService {
     } else {
       return false;
     }
+  }
+
+
+  /**
+   *  验证码倒计时
+   */
+  getVerifyCode(verifyCode: any) {
+    //发送验证码成功后开始倒计时
+    verifyCode.disable = false;
+    if (verifyCode.countdown == 1) {
+      verifyCode.countdown = 60;
+      verifyCode.verifyCodeTips = "获取验证码";
+      verifyCode.disable = true;
+      return;
+    } else {
+      verifyCode.countdown--;
+      verifyCode.verifyCodeTips = verifyCode.countdown + "秒后重试";
+    }
+
+    setTimeout(() => {
+      this.getVerifyCode(verifyCode);
+    }, 1000);
   }
 }

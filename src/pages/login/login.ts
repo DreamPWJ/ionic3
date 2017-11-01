@@ -1,6 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {IonicPage, Navbar, NavController, NavParams} from 'ionic-angular';
-import {AppService} from "../../app/app.service";
+import {AppGlobal, AppService} from "../../app/app.service";
 
 /**
  * Generated class for the LoginPage page.
@@ -17,6 +17,8 @@ import {AppService} from "../../app/app.service";
 export class LoginPage {
   @ViewChild("navbar") navBar: Navbar;
   public account: any = {user: "", password: ""}
+  // 验证码倒计时
+  verifyCode: any = AppGlobal.verifyCode;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public appService: AppService) {
   }
@@ -29,6 +31,11 @@ export class LoginPage {
   backButtonClick = (e: UIEvent) => {
     // do something
     this.navCtrl.pop();
+  }
+
+
+  getCode() {
+    this.appService.getVerifyCode(this.verifyCode);
   }
 
   login() {
